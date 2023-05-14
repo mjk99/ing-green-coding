@@ -14,7 +14,7 @@ final class AtmService {
      * Time complexity O(n*log(n))
      *
      * @param tasks {@link List<Task>}
-     * @return tasks in the order in which they must be executed {@link List<Task}
+     * @return tasks in the order in which they must be executed {@link List<Task>}
      */
     public List<Task> calculateOrder(List<Task> tasks) {
         return tasksByRegion(tasks).entrySet()

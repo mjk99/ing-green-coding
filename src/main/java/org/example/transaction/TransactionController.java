@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
 
-public class TransactionController implements HttpHandler {
+public final class TransactionController implements HttpHandler {
 
     private final TransactionSerializer transactionSerializer = new TransactionSerializer();
 
