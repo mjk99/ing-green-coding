@@ -1,6 +1,6 @@
 To repozytorium zawiera rozwiązanie "Zielona Tesla za zielony kod" organizowanego przez ING Bank Śląski.
 
-Informacje znajdują się w  na temat algorytmów z rozwiązań każdego z zadań:
+Informacje na temat algorytmów użytych w rozwiązaniach:
 
 ["atmservice"](src/main/java/org/example/atm/readme.md)
 
