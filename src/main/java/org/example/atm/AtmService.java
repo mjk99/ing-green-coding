@@ -4,11 +4,17 @@ import java.util.*;
 import java.util.stream.Stream;
 
 final class AtmService {
+
+    /**
+     * 1. Splits By Regions
+     * 2. Sorts Map by Region
+     * 3. Sorts tasks within region by priority
+     * 4. Removes duplicates within region
+     *
+     * @param tasks {@link List<Task>}
+     * @return tasks in the order in which they must be executed {@link List<Task}
+     */
     public List<Task> calculateOrder(List<Task> tasks) {
-        // 1. Split By Regions
-        // 2. Sort Map by Region
-        // 3. Sort tasks within region by priority
-        // 4. Remove duplicates within region
         return tasksByRegion(tasks).entrySet()
                 .stream()
                 .sorted(Comparator.comparingInt(Map.Entry::getKey))

@@ -6,6 +6,15 @@ import java.util.List;
 import java.util.Map;
 
 final class TransactionService {
+
+    /**
+     * This method creates hashmap of all accounts referenced in transaction list,
+     * for every transaction it updates account balance and debit/credit counts.
+     * Finally, returns list of accounts from hashmap and sorts it by account id.
+     *
+     * @param transactions {@link List<Transaction>}
+     * @return accounts sorted by their ids {@link List<Account>}
+     */
     public List<Account> calculate(List<Transaction> transactions) {
         final Map<String, AccountData> accountDataById = new HashMap<>();
 
@@ -38,7 +47,7 @@ final class TransactionService {
                 .toList();
     }
 
-    private class AccountData {
+    private static class AccountData {
         int debitCount = 0;
         int creditCount = 0;
         BigDecimal balance = BigDecimal.ZERO;

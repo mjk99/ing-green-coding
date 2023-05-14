@@ -6,6 +6,20 @@ import java.util.List;
 
 final class GameService {
 
+    /**
+     * 1. Sorts clans by points, if points are equal then decreasingly by number of members
+     * 2. Assigns each clan to a bin, which is a group of clans that will be let into event together
+     * 3. If bin is full, creates a new bin
+     * 4. Unpacks bins to get a list of groups of clans
+     *
+     * The problem solved by this method is variation of Knapsack and Bin Packing problems.
+     * The differences between this and classic knapsack problem is
+     * 1) list of items in the bin has to be returned, instead of just value of items in each bin
+     * 2) items have to be inserted in certain order, instead of just maximizing value
+     *
+     * @param players {@link Players}
+     * @return ordered list of groups to let into event {@link List<List<Clan>>}
+     */
     public List<List<Clan>> calculateOrder(Players players) {
         List<Clan> clans = players.clans;
         int binSize = players.groupSize;
