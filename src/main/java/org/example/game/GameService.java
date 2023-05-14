@@ -64,7 +64,7 @@ final class GameService {
 
     private static class Bin {
         int remainingCapacity;
-        List<Clan> items;
+        final List<Clan> items;
 
         public Bin(int capacity) {
             this.remainingCapacity = capacity;

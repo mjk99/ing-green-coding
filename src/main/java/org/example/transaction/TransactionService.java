@@ -18,14 +18,14 @@ final class TransactionService {
      * @return accounts sorted by their ids {@link List<Account>}
      */
     public List<Account> calculate(List<Transaction> transactions) {
-        final Map<String, AccountData> accountDataById = new HashMap<>();
+        final Map<String, Account> accountsById = new HashMap<>();
 
         for (Transaction transaction : transactions) {
-            AccountData debitAccount = accountDataById.computeIfAbsent(transaction.debitAccount,
-                    acc -> new AccountData());
+            Account debitAccount = accountsById.computeIfAbsent(transaction.debitAccount,
+                    acc -> new Account(transaction.debitAccount, 0, 0, BigDecimal.ZERO));
 
-            AccountData creditAccount = accountDataById.computeIfAbsent(transaction.creditAccount,
-                    acc -> new AccountData());
+            Account creditAccount = accountsById.computeIfAbsent(transaction.creditAccount,
+                            acc -> new Account(transaction.creditAccount, 0, 0, BigDecimal.ZERO));
 
 
             debitAccount.balance = debitAccount.balance.subtract(transaction.amount);
@@ -35,23 +35,11 @@ final class TransactionService {
             creditAccount.creditCount++;
         }
 
-        return accountDataById
-                .entrySet()
+        return accountsById
+                .values()
                 .stream()
-                .map(entry -> new Account(
-                                entry.getKey(),
-                                entry.getValue().debitCount,
-                                entry.getValue().creditCount,
-                                entry.getValue().balance
-                        )
-                ).sorted((acc1, acc2)
+                .sorted((acc1, acc2)
                         -> String.CASE_INSENSITIVE_ORDER.compare(acc1.account, acc2.account))
                 .toList();
-    }
-
-    private static class AccountData {
-        int debitCount = 0;
-        int creditCount = 0;
-        BigDecimal balance = BigDecimal.ZERO;
     }
 }
