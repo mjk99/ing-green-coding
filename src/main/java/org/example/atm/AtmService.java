@@ -16,7 +16,7 @@ final class AtmService {
      * @param tasks {@link List<Task>}
      * @return tasks in the order in which they must be executed {@link List<Task>}
      */
-    public List<Task> calculateOrder(List<Task> tasks) {
+    public List<Task> calculateOrder(final List<Task> tasks) {
         return tasksByRegion(tasks).entrySet()
                 .stream()
                 .sorted(Comparator.comparingInt(Map.Entry::getKey))
@@ -25,15 +25,15 @@ final class AtmService {
                 .toList();
     }
 
-    private Stream<Task> removeDuplicatesInRegion(List<Task> tasksInRegion) {
+    private Stream<Task> removeDuplicatesInRegion(final List<Task> tasksInRegion) {
         // important to leave first occurrence of task when removing duplicates
         // otherwise task might be less prioritized than it should
-        Set<Integer> ids = new HashSet<>();
+        final Set<Integer> ids = new HashSet<>();
 
         ListIterator<Task> taskIterator = tasksInRegion.listIterator();
 
         while (taskIterator.hasNext()) {
-            Task task = taskIterator.next();
+            final Task task = taskIterator.next();
             if (ids.contains(task.atmId)) {
                 taskIterator.remove();
             } else {
@@ -43,7 +43,7 @@ final class AtmService {
         return tasksInRegion.stream();
     }
 
-    private List<Task> sortByPriorityWithinRegion(List<Task> tasks) {
+    private List<Task> sortByPriorityWithinRegion(final List<Task> tasks) {
         List<Task> result = new ArrayList<>();
 
         List<Task>[] byPriorityWithinRegion = new List[]{
@@ -65,7 +65,7 @@ final class AtmService {
         return result;
     }
 
-    private Map<Integer, List<Task>> tasksByRegion(List<Task> tasks) {
+    private Map<Integer, List<Task>> tasksByRegion(final List<Task> tasks) {
         Map<Integer, List<Task>> tasksByRegion = new HashMap<>();
 
         for (Task task : tasks) {

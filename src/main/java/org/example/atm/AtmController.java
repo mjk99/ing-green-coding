@@ -16,16 +16,16 @@ public final class AtmController implements HttpHandler {
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {
-        InputStream inputStream = exchange.getRequestBody();
+        final InputStream inputStream = exchange.getRequestBody();
 
         //Deserialize
-        List<Task> tasks = atmSerializer.deserialize(inputStream);
+        final List<Task> tasks = atmSerializer.deserialize(inputStream);
 
         //Calculate
-        List<Task> atms = atmService.calculateOrder(tasks);
+        final List<Task> atms = atmService.calculateOrder(tasks);
 
         //Serialize
-        byte[] serialized = atmSerializer.serialize(atms);
+        final byte[] serialized = atmSerializer.serialize(atms);
 
         //Send response
         exchange.sendResponseHeaders(200, serialized.length);

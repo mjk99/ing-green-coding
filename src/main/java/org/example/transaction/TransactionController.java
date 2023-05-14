@@ -17,16 +17,16 @@ public final class TransactionController implements HttpHandler {
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {
-        InputStream inputStream = exchange.getRequestBody();
+        final InputStream inputStream = exchange.getRequestBody();
 
         //Deserialize
-        List<Transaction> transactions = transactionSerializer.deserialize(inputStream);
+        final List<Transaction> transactions = transactionSerializer.deserialize(inputStream);
 
         //Calculate
-        List<Account> accounts = transactionService.calculate(transactions);
+        final List<Account> accounts = transactionService.calculate(transactions);
 
         //Serialize
-        byte[] serialized = transactionSerializer.serialize(accounts);
+        final byte[] serialized = transactionSerializer.serialize(accounts);
 
         //Send response
         exchange.sendResponseHeaders(200, serialized.length);

@@ -35,10 +35,10 @@ final class AtmSerializer {
         return stream.toByteArray();
     }
 
-    public List<Task> deserialize(InputStream inputStream) throws IOException {
+    public List<Task> deserialize(final InputStream inputStream) throws IOException {
         JsonParser jParser = jFactory.createParser(inputStream);
 
-        List<Task> taskList = new ArrayList<>();
+        final List<Task> taskList = new ArrayList<>();
 
         while (jParser.nextToken() != JsonToken.END_ARRAY) {
             int region = -1;

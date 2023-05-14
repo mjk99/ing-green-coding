@@ -22,9 +22,9 @@ final class GameService {
      * @param players {@link Players}
      * @return ordered list of groups to let into event {@link List<List<Clan>>}
      */
-    public List<List<Clan>> calculateOrder(Players players) {
-        List<Clan> clans = players.clans;
-        int binSize = players.groupSize;
+    public List<List<Clan>> calculateOrder(final Players players) {
+        final List<Clan> clans = players.clans;
+        final int binSize = players.groupSize;
 
         clans.sort(new ClanComparator());
 
@@ -66,12 +66,12 @@ final class GameService {
         int remainingCapacity;
         final List<Clan> items;
 
-        public Bin(int capacity) {
+        public Bin(final int capacity) {
             this.remainingCapacity = capacity;
             this.items = new ArrayList<>();
         }
 
-        public boolean addItem(Clan clan) {
+        public boolean addItem(final Clan clan) {
             if (clan.numberOfPlayers <= remainingCapacity) {
                 items.add(clan);
                 remainingCapacity -= clan.numberOfPlayers;

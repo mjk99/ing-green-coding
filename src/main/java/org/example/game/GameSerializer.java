@@ -12,10 +12,10 @@ final class GameSerializer {
 
     private final JsonFactory jFactory = new JsonFactory();
 
-    public byte[] serialize(List<List<Clan>> groups) throws IOException {
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+    public byte[] serialize(final List<List<Clan>> groups) throws IOException {
+        final ByteArrayOutputStream stream = new ByteArrayOutputStream();
 
-        JsonGenerator generator = jFactory
+        final JsonGenerator generator = jFactory
                 .createGenerator(stream, JsonEncoding.UTF8);
 
         generator.writeStartArray();
@@ -43,7 +43,7 @@ final class GameSerializer {
         return stream.toByteArray();
     }
 
-    public Players deserialize(InputStream inputStream) throws IOException {
+    public Players deserialize(final InputStream inputStream) throws IOException {
 
         List<Clan> clans = new ArrayList<>();
         int groupCount = 0;

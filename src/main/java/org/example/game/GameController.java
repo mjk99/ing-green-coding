@@ -19,13 +19,13 @@ public final class GameController implements HttpHandler {
         InputStream inputStream = exchange.getRequestBody();
 
         //Deserialize
-        Players players = gameSerializer.deserialize(inputStream);
+        final Players players = gameSerializer.deserialize(inputStream);
 
         //Calculate
-        List<List<Clan>> atms = gameService.calculateOrder(players);
+        final List<List<Clan>> atms = gameService.calculateOrder(players);
 
         //Serialize
-        byte[] serialized = gameSerializer.serialize(atms);
+        final byte[] serialized = gameSerializer.serialize(atms);
 
         //Send response
         exchange.sendResponseHeaders(200, serialized.length);
