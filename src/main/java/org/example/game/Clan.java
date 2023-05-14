@@ -1,6 +1,6 @@
 package org.example.game;
 
-public class Clan {
+public final class Clan {
     public final int numberOfPlayers;
     public final int points;
 

@@ -3,7 +3,7 @@ package org.example.atm;
 import java.util.*;
 import java.util.stream.Stream;
 
-class AtmService {
+final class AtmService {
     public List<Task> calculateOrder(List<Task> tasks) {
         // 1. Split By Regions
         // 2. Sort Map by Region

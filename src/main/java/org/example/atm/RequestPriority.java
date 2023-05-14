@@ -1,6 +1,6 @@
 package org.example.atm;
 
-public class RequestPriority {
+public final class RequestPriority {
     public static int of(String status) {
         return switch (status) {
             case "STANDARD" -> 0;

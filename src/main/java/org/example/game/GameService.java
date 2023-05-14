@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class GameService {
+final class GameService {
 
     public List<List<Clan>> calculateOrder(Players players) {
         List<Clan> clans = players.clans;

@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameSerializer {
+final class GameSerializer {
 
     private final JsonFactory jFactory = new JsonFactory();
 

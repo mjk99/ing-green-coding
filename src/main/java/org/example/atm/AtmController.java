@@ -8,8 +8,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
 
-public class AtmController implements HttpHandler {
-    AtmSerializer atmSerializer = new AtmSerializer();
+public final class AtmController implements HttpHandler {
+    private final AtmSerializer atmSerializer = new AtmSerializer();
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {

@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TransactionService {
+final class TransactionService {
     public List<Account> calculate(List<Transaction> transactions) {
         final Map<String, AccountData> accountDataById = new HashMap<>();
 

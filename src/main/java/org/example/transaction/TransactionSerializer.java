@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TransactionSerializer {
+final class TransactionSerializer {
 
     private final JsonFactory jFactory = new JsonFactory();
 

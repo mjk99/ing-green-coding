@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.List;
 
-public class GameController implements HttpHandler {
+public final class GameController implements HttpHandler {
     GameSerializer gameSerializer = new GameSerializer();
 
     @Override

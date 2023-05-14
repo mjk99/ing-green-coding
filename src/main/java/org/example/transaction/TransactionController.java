@@ -11,9 +11,9 @@ import java.util.List;
 
 public class TransactionController implements HttpHandler {
 
-    TransactionSerializer transactionSerializer = new TransactionSerializer();
+    private final TransactionSerializer transactionSerializer = new TransactionSerializer();
 
-    TransactionService transactionService = new TransactionService();
+    private final TransactionService transactionService = new TransactionService();
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {

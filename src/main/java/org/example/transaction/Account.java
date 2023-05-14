@@ -2,7 +2,7 @@ package org.example.transaction;
 
 import java.math.BigDecimal;
 
-public class Account {
+public final class Account {
     public final String account;
     public final int debitCount;
     public final int creditCount;

@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-class AtmSerializer {
+final class AtmSerializer {
     private final JsonFactory jFactory = new JsonFactory();
 
     public byte[] serialize(List<Task> tasks) throws IOException {
