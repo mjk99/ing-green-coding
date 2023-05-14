@@ -11,6 +11,8 @@ final class AtmService {
      * 3. Sorts tasks within region by priority
      * 4. Removes duplicates within region
      *
+     * Time complexity O(n*log(n))
+     *
      * @param tasks {@link List<Task>}
      * @return tasks in the order in which they must be executed {@link List<Task}
      */

@@ -12,6 +12,8 @@ final class TransactionService {
      * for every transaction it updates account balance and debit/credit counts.
      * Finally, returns list of accounts from hashmap and sorts it by account id.
      *
+     * Time complexity O(n*log(n))
+     *
      * @param transactions {@link List<Transaction>}
      * @return accounts sorted by their ids {@link List<Account>}
      */

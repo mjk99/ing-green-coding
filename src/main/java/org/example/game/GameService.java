@@ -17,6 +17,8 @@ final class GameService {
      * 1) list of items in the bin has to be returned, instead of just value of items in each bin
      * 2) items have to be inserted in certain order, instead of just maximizing value
      *
+     *  Time complexity O(n^2)
+     *
      * @param players {@link Players}
      * @return ordered list of groups to let into event {@link List<List<Clan>>}
      */
